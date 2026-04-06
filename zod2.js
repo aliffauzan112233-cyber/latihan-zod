@@ -1,10 +1,13 @@
-const result = schema.safeParse({
-    name: "Alif",
-    age: "18",
+import { z } from "zod";
+
+// bikin schema dulu
+const schema = z.object({
+  name: z.string(),
 });
 
-console.log(result)
+// baru dipakai
+const result = schema.safeParse({
+  name: "Alif"
+});
 
-if (!result.success){
-    console.log(result.error.format());
-}
+console.log(result);
